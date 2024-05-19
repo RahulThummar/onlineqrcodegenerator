@@ -14,18 +14,9 @@ function App() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const config = {
-    headers: { Authorization: "Bearer e0e29170-9e80-11ec-8ef8-55375f08d076" },
-  };
-  const bodyParameters = {
-    colorDark: inputValue.color,
-    qrCategory: "url",
-    text: inputValue.url,
-  };
   const getQrCode = async () => {
     try {
       setLoading(true);
-
       setResponse({ text: inputValue.url, color: inputValue.color });
     } catch (err) {
       setError(err);
@@ -44,13 +35,16 @@ function App() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-screen pt-24 md:pt-80 px-2">
-      <div className="container mx-auto max-w-4xl bg-white rounded-md shadow">
-        <div className="md:grid md:grid-cols-3">
-          <InputContext.Provider value={value}>
-            <InputForm />
-            <QrCode />
-          </InputContext.Provider>
+    <div>
+      <h2 className="mt-5">QR code generator</h2>
+      <div className="container">
+        <div className="main-content">
+          <div className="md:grid md:grid-cols-3">
+            <InputContext.Provider value={value}>
+              <InputForm />
+              <QrCode />
+            </InputContext.Provider>
+          </div>
         </div>
       </div>
     </div>

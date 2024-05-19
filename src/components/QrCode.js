@@ -41,13 +41,10 @@ const QrCode = () => {
   }
 
   return (
-    <div className="bg-gray-100 rounded-md shadow-lg p-6 flex flex-col items-center justify-center space-y-4">
+    <div className="qr-div rounded-md shadow-lg p-6 flex flex-col items-center justify-center space-y-4">
       {response ? (
         <div className="flex flex-col items-center">
-          <div
-            ref={qrRef}
-            className="bg-white p-4 rounded-lg border border-gray-300"
-          >
+          <div ref={qrRef} className="bg-white p-4 rounded-lg border border-gray-300">
             <QRCode value={response.text} fgColor={response.color} />
           </div>
           <button
